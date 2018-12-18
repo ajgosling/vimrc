@@ -1,6 +1,7 @@
 " AJ Gosling vimdc
 " Colors {{{
 syntax enable           " enable syntax processing
+set background=dark
 colorscheme solarized
 set termguicolors
 " }}}
@@ -41,11 +42,13 @@ nnoremap <space> za
 set foldlevelstart=10   " start with fold level of 1
 " }}}
 " Line Shortcuts {{{
+nnoremap B ^
+nnoremap E $
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
-noremap ; l
-noremap l k
+noremap h i
+noremap i k
 noremap k j
 noremap j h
 " }}}
