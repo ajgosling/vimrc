@@ -1,9 +1,11 @@
-" AJ Gosling vimdc
+" AJ Gosling vimrc
 " Colors {{{
+execute pathogen#infect()
 syntax enable           " enable syntax processing
 set background=dark
 colorscheme solarized
 set termguicolors
+autocmd vimenter * NERDTree " automatically open NERDTree
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
@@ -60,6 +62,7 @@ nnoremap <leader>s :mksession<CR>
 nnoremap <leader>a :Ag
 " }}}
 " CtrlP {{{
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
@@ -67,3 +70,4 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
+
