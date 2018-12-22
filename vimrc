@@ -5,13 +5,24 @@ syntax enable           " enable syntax processing
 set background=dark
 colorscheme afterglow
 set termguicolors
-autocmd vimenter * NERDTree " automatically open NERDTree
 " }}}
 " Misc {{{
 set backspace=2
 set backspace=indent,eol,start
 let g:vimwiki_list = [{'path': '~/.wiki/'}]
 set clipboard=unnamed
+set number
+set relativenumber
+
+augroup linenumbers
+  autocmd!
+  autocmd BufEnter *    :set relativenumber
+  autocmd BufLeave *    :set number norelativenumber
+  autocmd WinEnter *    :set relativenumber
+  autocmd WinLeave *    :set number norelativenumber
+  autocmd FocusLost *   :set number norelativenumber
+  autocmd FocusGained * :set relativenumber
+augroup END
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -77,6 +88,10 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_map = 'P'
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")': ['<c-k>', '<down>', 'K', '<Space>'],
+\ 'PrtSelectMove("k")': ['<c-i>', '<up>', 'I'],
+\}
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -90,13 +105,9 @@ if executable('ag')
 endif
 " }}}
 " NerdTree {{{
+autocmd VimEnter * NERDTree " automatically open NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * wincmd p
-" }}}
-" NerdCommenter {{{
-let g:NERDSpaceDelims = 1 " add space after comments
-let g:NERDDefaultAlign = 'left' "align comments flush left
-let g:NERDCommentEmptyLines = 1
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
