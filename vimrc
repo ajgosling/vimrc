@@ -62,9 +62,12 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
 map h <insert>
+nnoremap H I
 map i <Up>
+nnoremap I H
 map j <Left>
 map k <Down>
+nnoremap K L
 ounmap i
 ounmap h
 " will remap backspace to backspace noremap <BS> xh
@@ -79,8 +82,9 @@ nnoremap <leader>s :mksession<CR>
 " }}}
 
 " FZF FuzzyFind {{{
+set rtp+=/usr/local/opt/fzf
 nnoremap P :Files<Cr> " File search
-nnoremap F :Rg<Cr> " Ripgrep
+nnoremap F :Rg<Space>
 " to change keybindings use in terminal: export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --bind I:up,K:down'
 " }
 " RipGrep silver searcher {{{
