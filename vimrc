@@ -80,7 +80,7 @@ nnoremap <leader>s :mksession<CR>
 
 " FZF FuzzyFind {{{
 nnoremap P :Files<Cr> " File search
-nnoremap O :Rg<Cr> " Ripgrep
+nnoremap F :Rg<Cr> " Ripgrep
 " to change keybindings use in terminal: export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --bind I:up,K:down'
 " }
 " RipGrep silver searcher {{{
