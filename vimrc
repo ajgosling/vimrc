@@ -11,18 +11,8 @@ set backspace=2
 set backspace=indent,eol,start
 let g:vimwiki_list = [{'path': '~/.wiki/'}]
 set clipboard=unnamed
-set number
-set relativenumber
+set noswapfile
 
-augroup linenumbers
-  autocmd!
-  autocmd BufEnter *    :set relativenumber
-  autocmd BufLeave *    :set number norelativenumber
-  autocmd WinEnter *    :set relativenumber
-  autocmd WinLeave *    :set number norelativenumber
-  autocmd FocusLost *   :set number norelativenumber
-  autocmd FocusGained * :set relativenumber
-augroup END
 " }}}
 " Spaces & Tabs {{{
 set tabstop=2           " 2 space tab
@@ -36,6 +26,7 @@ set autoindent
 " }}}
 " UI Layout {{{
 set number              " show line numbers
+set relativenumber
 set showcmd             " show command in bottom bar
 set nocursorline        " highlight current line
 set wildmenu
@@ -70,6 +61,10 @@ map k <Down>
 nnoremap K L
 ounmap i
 ounmap h
+map <C-j> <C-W>h
+map <C-k> <C-W>j
+map <C-l> <C-W>l
+map <C-i> <C-W>k
 " will remap backspace to backspace noremap <BS> xh
 
 " }}}
@@ -103,17 +98,42 @@ let g:lightline = {
 " }}}
 
 " NerdTree {{{
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
+nnoremap <Leader>f :NERDTreeToggle<Enter>
 autocmd VimEnter * NERDTree " automatically open NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * wincmd p
+
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 " }}}
 
 " RainbowParentheses {{{
-let g:rainbow_active = 1
+ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " }}}
 
 " HTMLAutoCloseTags {{{
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
 " }}}
-" vim:foldmethod=marker:foldlevel=0
 
+" vim:foldmethod=marker:foldlevel=0
