@@ -52,26 +52,16 @@ nnoremap E $
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
-map h <insert>
-nnoremap H I
-map i <Up>
-nnoremap I H
-map j <Left>
-map k <Down>
-nnoremap K L
-ounmap i
-ounmap h
-map <C-j> <C-W>h
-map <C-k> <C-W>j
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
 map <C-l> <C-W>l
-map <C-i> <C-W>k
 " will remap backspace to backspace noremap <BS> xh
 
 " }}}
 " Leader Shortcuts {{{
 let mapleader=","
 inoremap jk <esc>
-inoremap jl <esc>
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>s :mksession<CR>
 " }}}
@@ -80,7 +70,7 @@ nnoremap <leader>s :mksession<CR>
 set rtp+=/usr/local/opt/fzf
 nnoremap P :Files<Cr> " File search
 nnoremap F :Rg<Space>
-" to change keybindings use in terminal: export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --bind I:up,K:down'
+" to change keybindings use in terminal: export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --bind J:down,K:up'
 " }
 " RipGrep silver searcher {{{
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
