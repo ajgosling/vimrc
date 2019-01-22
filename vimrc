@@ -1,7 +1,7 @@
 " AJ Gosling vimrc
 " Colors {{{
 execute pathogen#infect()
-syntax enable           " enable syntax processing
+syntax on           " enable syntax processing
 set background=dark
 colorscheme afterglow
 set termguicolors
