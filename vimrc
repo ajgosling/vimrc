@@ -12,8 +12,9 @@ set backspace=indent,eol,start
 let g:vimwiki_list = [{'path': '~/.wiki/'}]
 set clipboard=unnamed
 set noswapfile
+set timeout timeoutlen=500 ttimeoutlen=100 "time requirements for special commands, i.e. jk
 
-" }}}
+ }}}
 " Spaces & Tabs {{{
 set tabstop=2           " 2 space tab
 set expandtab           " use spaces for tabs
