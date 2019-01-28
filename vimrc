@@ -3,7 +3,7 @@
 execute pathogen#infect()
 syntax on           " enable syntax processing
 set background=dark
-colorscheme afterglow
+colorscheme dracula
 set termguicolors
 " }}}
 " Misc {{{
@@ -14,7 +14,7 @@ set clipboard=unnamed
 set noswapfile
 set timeout timeoutlen=500 ttimeoutlen=100 "time requirements for special commands, i.e. jk
 
- }}}
+" }}}
 " Spaces & Tabs {{{
 set tabstop=2           " 2 space tab
 set expandtab           " use spaces for tabs
