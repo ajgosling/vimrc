@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/Goose/.oh-my-zsh"
@@ -43,6 +44,9 @@ ZSH_DISABLE_COMPFIX=true
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
+
+# zsh tmux settings
+ZSH_TMUX_AUTOSTART='true'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,6 +103,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git 
   iterm2
+  tmux
   zsh-completions
 
   ###
