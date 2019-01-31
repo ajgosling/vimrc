@@ -5,6 +5,7 @@ syntax on           " enable syntax processing
 set background=dark
 colorscheme dracula
 set termguicolors
+set t_Co=256
 " }}}
 " Misc {{{
 set backspace=2
