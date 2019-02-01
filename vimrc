@@ -13,7 +13,7 @@ set backspace=indent,eol,start
 let g:vimwiki_list = [{'path': '~/.wiki/'}]
 set clipboard=unnamed
 set noswapfile
-set timeout timeoutlen=300 ttimeoutlen=100 "time requirements for special commands, i.e. jk
+" set timeout timeoutlen=300 ttimeoutlen=100 "time requirements for special commands, i.e. jk
 set mouse=a
 
 " }}}
@@ -59,13 +59,13 @@ map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
+nmap Y y$
 " will remap backspace to backspace noremap <BS> xh
 
 " }}}
 " Leader Shortcuts {{{
 let mapleader=","
 inoremap jk <esc>
-nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>s :mksession<CR>
 " }}}
 " FZF FuzzyFind {{{
@@ -75,7 +75,7 @@ nnoremap F :Rg<Space>
 " to change keybindings use in terminal: export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --bind J:down,K:up'
 " }}}
 " RipGrep silver searcher {{{
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 set grepprg=rg\ --vimgrep
 " }
 " }}}
@@ -87,7 +87,6 @@ let g:lightline = {
 \   'right': [['lineinfo'], ['readonly', 'filetype']]
 \ }
 \ }
-set laststatus=2
 " }}}
 " NerdTree {{{
 " let NERDTreeMinimalUI = 1
