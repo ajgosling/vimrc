@@ -16,15 +16,17 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir vcs background_jobs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time time ram)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time time)
 # POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_USER_ICON="\uF415" # 
 POWERLEVEL9K_ROOT_ICON="\uF09C"
 POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_VCS_GIT_ICON='\uF408 '
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uF408 '
+# POWERLEVEL9K_VCS_GIT_ICON='\uF408 '
+# POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uF408 '
+POWERLEVEL9K_VCS_GIT_ICON=''
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='springgreen3'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
@@ -39,6 +41,9 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
 POWERLEVEL9K_DIR_ETC_FOREGROUND='white'
+# POWERLEVEL9K_TIME_BACKGROUND='lightskyblue3'
+# POWERLEVEL9K_TIME_FOREGROUND='white'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 ZSH_DISABLE_COMPFIX=true
 
@@ -46,7 +51,8 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 # zsh tmux settings
-ZSH_TMUX_AUTOSTART='true'
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_ITERM2=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -146,3 +152,6 @@ source ~/.bashrc
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
