@@ -67,11 +67,12 @@ nmap Y y$
 let mapleader=","
 inoremap jk <esc>
 nnoremap <leader>s :mksession<CR>
+nnoremap <leader>f :Rg<Space>
+nnoremap <leader>t :Files<Cr> " File search
+nnoremap <leader>g <C-^>
 " }}}
 " FZF FuzzyFind {{{
 set rtp+=/usr/local/opt/fzf
-nnoremap P :Files<Cr> " File search
-nnoremap F :Rg<Space>
 " to change keybindings use in terminal: export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --bind J:down,K:up'
 " }}}
 " RipGrep silver searcher {{{
